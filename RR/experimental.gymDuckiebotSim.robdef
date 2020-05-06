@@ -1,0 +1,23 @@
+#Service to provide sample interface to the GymDuckiebot Simulation
+service experimental.gymDuckiebotSim
+
+stdver 0.9
+
+struct CamImage
+    field int32 width
+    field int32 height
+    field int32 step
+    field uint8[] data
+end
+
+
+object DuckiebotSim
+    function CamImage CaptureFrame_n_Action()
+
+    function void StartStreaming()
+    function void StopStreaming()
+    pipe CamImage FrameStream [readonly]
+
+    function void setAction(double v, double w)
+end
+
