@@ -23,7 +23,9 @@ from gym_duckietown.envs import DuckietownEnv
 class gymDuckiebotSimRRService(object):
     def __init__(self):
         # Initialize Robot Simulation
-        self.env = DuckietownEnv( seed = 1, max_steps = 5000, map_name = 'udem1', draw_curve = False, draw_bbox = False, distortion = False )
+        # Other Maps: udem1, straight_road, small_loop, loop_empty, 4way, zigzag_dists, loop_obstacles
+        # loop_pedestrians, loop_dyn_duckiebots, regress_4way_adam
+        self.env = DuckietownEnv( seed = 1, max_steps = 5000, map_name = 'zigzag_dists', draw_curve = False, draw_bbox = False, distortion = True )
         self.env.reset()
         self.env.render()
         self.action = np.array([0.0, 0.0])
@@ -45,10 +47,11 @@ class gymDuckiebotSimRRService(object):
             # Grab image from simulation and apply the action
             obs, reward, done, info = self.env.step(self.action)
             
-            if done:
-                self.env.reset()                
+            #if done:
+            #    self.env.reset()                
             
-            frame = cv2.cvtColor(obs, cv2.COLOR_BGR2RGB) # Correct color for cv2
+            frame = cv2.cvtColor(obs, cv2.COLOR_RGB2BGR) # Correct color for cv2
+            # frame = obs
 
             image.width=frame.shape[1]
             image.height=frame.shape[0]
