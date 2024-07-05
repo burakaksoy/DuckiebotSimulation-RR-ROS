@@ -1,0 +1,16 @@
+https://docs.duckietown.org/daffy/AIDO/out/dt_simulator.html
+Gym-Duckietown
+pure Python/OpenGL (Pyglet)
+
+python3 ./manual_control.py --env-name Duckietown-udem1-v0
+python3 ./manual_control.py --env-name Duckietown-straight_road-v0 --map-name straight_road
+python3 ./manual_control.py --env-name Duckietown-small_loop-v0 --map-name small_loop
+python3 ./manual_control.py --env-name Duckietown-zigzag_dists-v0 --map-name loop_empty
+python3 ./manual_control.py --env-name Duckietown-4way-v0 --map-name 4way
+python3 ./manual_control.py --env-name Duckietown-zigzag_dists-v0 --map-name zigzag_dists
+python3 ./manual_control.py --env-name Duckietown-zigzag_dists-v0 --map-name loop_obstacles
+python3 ./manual_control.py --env-name Duckietown-zigzag_dists-v0 --map-name loop_pedestrians
+python3 ./manual_control.py --env-name Duckietown-zigzag_dists-v0 --map-name loop_dyn_duckiebots
+
+python3 ./manual_control.py --env-name Duckietown-zigzag_dists-v0 --map-name regress_4way_adam
+
